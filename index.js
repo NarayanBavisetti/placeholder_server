@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose');
+const protect = require('./middleware/authMiddleware');
 require('dotenv').config();
 
 const app = express();
@@ -18,8 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
 
-app.get("/",(req,res) => {
-    res.send("hiiiiiiiiiiiiiie");
+app.use(require("./routes/authRoutes"))
+app.use(require("./routes/courseRoutes"))
+
+app.get("/", protect,(req,res) => {
+    res.send("Hiiiiieee");
 })
 
 app.listen(PORT,() => console.log(`PORT running at ${PORT}`))

@@ -21,6 +21,8 @@ app.use(express.urlencoded({ extended: false}));
 
 app.use(require("./routes/authRoutes"))
 app.use(require("./routes/courseRoutes"))
+app.use(require("./routes/forumRoutes"))
+app.use(require("./routes/payments"))
 
 app.get("/", protect,(req,res) => {
     res.send("Hiiiiieee");

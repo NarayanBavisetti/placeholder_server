@@ -9,7 +9,7 @@ const courseSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  description:{
+  description: {
     type: String,
     required: true,
   },
@@ -22,7 +22,7 @@ const courseSchema = mongoose.Schema({
   },
   date: {
     type: Number,
-    require:true
+    require: true,
   },
   lectures: [
     {
@@ -32,14 +32,14 @@ const courseSchema = mongoose.Schema({
       description: String,
     },
   ],
-  educatorId:{
-     type: Schema.Types.ObjectId,
-     required:true
+  educatorId: {
+    type: Schema.Types.ObjectId,
+    required: true,
   },
-  educatorName:{
-    type:String,
-    required:true,
-  }
+  educatorName: {
+    type: String,
+    required: true,
+  },
 });
 
 const Course = mongoose.model("courses", courseSchema);

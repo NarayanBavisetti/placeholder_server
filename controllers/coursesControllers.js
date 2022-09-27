@@ -56,36 +56,8 @@ const getACourse = async (req, res) => {
 };
 
 const getCourses = async (req, res) => {
-  let courses = [];
-  const id = req.param.id;
-
-  console.log(req.params.id);
-  //  Course.find({ educatorId: id })
-
-  //  const rese = Course.find(
-  //     { educatorId: { $in: [ id ] } }
-  //  )
-  //  return res.status(201).json({
-  //     message: rese,
-  //   });
-  //  console.log(rese);
-  // const rese = Course.find({ educatorId: { $in:ObjectId(id)} });
-  // console.log(rese);
-  //  const projection = { educatorId: id };
-  // const cursor = Course.find().populate(projection);
-  // await cursor.forEach(console.dir);
-  //  .forEach(course => courses.push(course)).then(() => {
-  // res.status(200).json(courses);
-  // console.log(courses)
-  // })
-  //   console.log(data);
-  //   if (data) {
-  //     res.status(201).json({
-  //     data: data
-  //     });
-  //   } else {
-  //     return res.status(400).json({ message: "invalid credentials" });
-  //   }
+  const courses = await Course.find();
+  res.status(200).json(courses);
 };
 
 module.exports = {
